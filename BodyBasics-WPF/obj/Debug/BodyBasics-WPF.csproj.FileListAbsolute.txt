@@ -13,3 +13,32 @@ C:\Users\cadarrius\Desktop\Latest kinect\BodyBasics-WPF\obj\Debug\Microsoft.Samp
 C:\Users\cadarrius\Desktop\Latest kinect\BodyBasics-WPF\obj\Debug\BodyBasics-WPF.csproj.GenerateResource.Cache
 C:\Users\cadarrius\Desktop\Latest kinect\BodyBasics-WPF\obj\Debug\BodyBasics-WPF.exe
 C:\Users\cadarrius\Desktop\Latest kinect\BodyBasics-WPF\obj\Debug\BodyBasics-WPF.pdb
+C:\Users\cadarrius\Desktop\Latest kinect\BodyBasics-WPF\bin\AnyCPU\Debug\Newtonsoft.Json.dll
+C:\Users\cadarrius\Desktop\Latest kinect\BodyBasics-WPF\bin\AnyCPU\Debug\Newtonsoft.Json.xml
+C:\Users\cadarrius\Desktop\Latest kinect\BodyBasics-WPF\obj\Debug\MainMenu.g.cs
+C:\Users\cadarrius\Desktop\Latest kinect\BodyBasics-WPF\obj\Debug\BodyBasics-WPF_MarkupCompile.lref
+C:\Users\cadarrius\Desktop\Latest kinect\BodyBasics-WPF\obj\Debug\MainMenu.baml
+C:\Users\cadarrius\Desktop\Latest kinect\BodyBasics-WPF\obj\Debug\AnalyticalView.baml
+C:\Users\cadarrius\Desktop\Latest kinect\BodyBasics-WPF\obj\Debug\AnalyticalView.g.cs
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\bin\AnyCPU\Debug\BodyBasics-WPF.exe.config
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\obj\Debug\BodyBasics-WPF.exe
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\obj\Debug\BodyBasics-WPF.pdb
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\bin\AnyCPU\Debug\BodyBasics-WPF.exe
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\bin\AnyCPU\Debug\BodyBasics-WPF.pdb
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\bin\AnyCPU\Debug\Microsoft.Kinect.dll
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\bin\AnyCPU\Debug\Newtonsoft.Json.dll
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\bin\AnyCPU\Debug\Microsoft.Kinect.xml
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\bin\AnyCPU\Debug\Newtonsoft.Json.xml
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\obj\Debug\BodyBasics-WPF.csprojResolveAssemblyReference.cache
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\obj\Debug\AnalyticalView.baml
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\obj\Debug\MainWindow.baml
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\obj\Debug\AnalyticalView.g.cs
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\obj\Debug\MainMenu.g.cs
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\obj\Debug\MainWindow.g.cs
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\obj\Debug\App.g.cs
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\obj\Debug\BodyBasics-WPF_MarkupCompile.cache
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\obj\Debug\BodyBasics-WPF_MarkupCompile.lref
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\obj\Debug\MainMenu.baml
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\obj\Debug\BodyBasics-WPF.g.resources
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\obj\Debug\Microsoft.Samples.Kinect.BodyBasics.Properties.Resources.resources
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\BodyBasics-WPF\obj\Debug\BodyBasics-WPF.csproj.GenerateResource.Cache

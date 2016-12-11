@@ -129,11 +129,16 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         /// </summary>
         private string statusText = null;
 
+        private string username = "";
+        
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
-        public MainWindow()
+        public MainWindow(string uname)
         {
+            username = uname;
+            
+
             // one sensor is currently supported
             this.kinectSensor = KinectSensor.GetDefault();
 
@@ -268,6 +273,9 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         /// <param name="e">event arguments</param>
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            //Place username in textbox
+            textBox.Text = username;
+
             if (this.bodyFrameReader != null)
             {
                 this.bodyFrameReader.FrameArrived += this.Reader_FrameArrived;
@@ -348,15 +356,14 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                                 // clamp down to 0.1f to prevent coordinatemapper from returning (-Infinity, -Infinity)
                                 CameraSpacePoint position = joints[jointType].Position;
 
-                                if (sendMe)
-                                {
-                                    using (ServiceReference1.Service1Client s = new ServiceReference1.Service1Client())
-                                    {
-
-                                        textBox.Text = s.GetData(Convert.ToInt32(position.Z));
-                                        sendMe = false;
-                                    }
-                                }
+                               // if (sendMe)
+                               // {
+                                   // using (XboxWCFService.Service1Client s = new XboxWCFService.Service1Client())
+                                    //{
+                                   //     textBox.Text = s.GetData(Convert.ToInt32(position.Z));
+                                   //     sendMe = false;
+                                   // }
+                                //}
                                
 
 
@@ -370,6 +377,15 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                             }
                             
                             this.DrawBody(joints, jointPoints, dc, drawPen);
+
+                            string jointsJSONString = Newtonsoft.Json.JsonConvert.SerializeObject(joints);
+                            string jointPointsJSONString = Newtonsoft.Json.JsonConvert.SerializeObject(jointPoints);
+                            //IReadOnlyDictionary<JointType, Joint> deserializedJoints = Newtonsoft.Json.JsonConvert.DeserializeObject<IReadOnlyDictionary<JointType, Joint>>(jointsJSONString);
+
+                             using (XboxWCFService.Service1Client s = new XboxWCFService.Service1Client())
+                            {
+                                s.SendData(username,jointsJSONString, jointPointsJSONString, DateTime.Now);                                
+                            }
 
                             this.DrawHand(body.HandLeftState, jointPoints[JointType.HandLeft], dc);
                             this.DrawHand(body.HandRightState, jointPoints[JointType.HandRight], dc);
@@ -529,12 +545,15 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                                                             : Properties.Resources.SensorNotAvailableStatusText;
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void navMainMenu_Click(object sender, RoutedEventArgs e)
         {
-            using(ServiceReference1.Service1Client s = new ServiceReference1.Service1Client())
-            {
-                textBox.Text = s.GetData(19);
-            }
+         
+
+            MainMenu mainMenu = new MainMenu();
+            App.Current.MainWindow = mainMenu;
+            this.Close();
+            mainMenu.Show();
         }
+        
     }
 }
