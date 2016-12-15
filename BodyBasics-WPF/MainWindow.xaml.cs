@@ -23,6 +23,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         private bool sendMe = true;
+        private XboxWCFService.Service1Client s;
 
         /// <summary>
         /// Radius of drawn hand circles
@@ -276,6 +277,8 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             //Place username in textbox
             textBox.Text = username;
 
+            s = new XboxWCFService.Service1Client();
+
             if (this.bodyFrameReader != null)
             {
                 this.bodyFrameReader.FrameArrived += this.Reader_FrameArrived;
@@ -382,10 +385,9 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                             string jointPointsJSONString = Newtonsoft.Json.JsonConvert.SerializeObject(jointPoints);
                             //IReadOnlyDictionary<JointType, Joint> deserializedJoints = Newtonsoft.Json.JsonConvert.DeserializeObject<IReadOnlyDictionary<JointType, Joint>>(jointsJSONString);
 
-                             using (XboxWCFService.Service1Client s = new XboxWCFService.Service1Client())
-                            {
-                                s.SendData(username,jointsJSONString, jointPointsJSONString, DateTime.Now);                                
-                            }
+                            
+                           
+                            s.SendData(username, jointsJSONString, jointPointsJSONString, DateTime.Now);
 
                             this.DrawHand(body.HandLeftState, jointPoints[JointType.HandLeft], dc);
                             this.DrawHand(body.HandRightState, jointPoints[JointType.HandRight], dc);
