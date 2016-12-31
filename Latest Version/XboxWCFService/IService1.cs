@@ -17,13 +17,22 @@ namespace XboxWCFService
         List<BodyDataObject> GetData(int value);
 
         [OperationContract]
-        string SendData(string username, string joints, string jointPoints, DateTime dt);
+        string SendData(string username, string sessionname,string joints, string jointPoints, DateTime dt);
+
+        [OperationContract]
+        List<string> GetPatients();
+
+        [OperationContract]
+        List<string> GetSessions(string username);
+
+        [OperationContract]
+        List<uspGetBodyDataByUserNameAndSessionName_Result> GetBodyData(string sessionname, string username);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
-
+         
         // TODO: Add your service operations here
-    }
+    } 
 
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

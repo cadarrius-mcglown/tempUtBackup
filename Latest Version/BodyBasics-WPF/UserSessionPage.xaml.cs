@@ -391,7 +391,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
 
 
-                            s.SendData(username, jointsJSONString, jointPointsJSONString, DateTime.Now);
+                            s.SendData(username, "testsession2",jointsJSONString, jointPointsJSONString, DateTime.Now);
 
                             this.DrawHand(body.HandLeftState, jointPoints[JointType.HandLeft], dc);
                             this.DrawHand(body.HandRightState, jointPoints[JointType.HandRight], dc);

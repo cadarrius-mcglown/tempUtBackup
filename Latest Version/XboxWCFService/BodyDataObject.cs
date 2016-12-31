@@ -12,6 +12,8 @@ namespace XboxWCFService
         [DataMember]
         public string UserName { get; set; }
         [DataMember]
+        public string SessionName { get; set; }
+        [DataMember]
         public string Joints { get; set; }
         [DataMember]
         public string JointPoints { get; set; }
@@ -22,9 +24,10 @@ namespace XboxWCFService
         {
           
         }
-        public BodyDataObject(string u, string j, string jp, DateTime ts)
+        public BodyDataObject(string u,string sn, string j, string jp, DateTime ts)
         {
             UserName = u;
+            SessionName = sn;
             Joints = j;
             JointPoints = jp;
             TimeStamp = ts;

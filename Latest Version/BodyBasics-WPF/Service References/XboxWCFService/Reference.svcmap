@@ -22,11 +22,12 @@
     <MetadataSource Address="http://192.168.1.3/XboxWCFService/Service1.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="c6d1d163-b103-4ec8-a9b6-fdf825a98d04" SourceId="1" SourceUrl="http://192.168.1.3/XboxWCFService/Service1.svc?xsd=xsd0" />
-    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="e06cf34f-50b0-417d-bacb-5772a7a1b050" SourceId="1" SourceUrl="http://192.168.1.3/XboxWCFService/Service1.svc?wsdl" />
-    <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="e4d44e67-7c2f-4fdf-8f7f-3a4599ddb861" SourceId="1" SourceUrl="http://192.168.1.3/XboxWCFService/Service1.svc?disco" />
-    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="2a42427a-849e-4b90-b7b0-39dc1b6387b4" SourceId="1" SourceUrl="http://192.168.1.3/XboxWCFService/Service1.svc?xsd=xsd1" />
     <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="a7b0398f-5bca-403d-834b-8d8792363152" SourceId="1" SourceUrl="http://192.168.1.3/XboxWCFService/Service1.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="2a42427a-849e-4b90-b7b0-39dc1b6387b4" SourceId="1" SourceUrl="http://192.168.1.3/XboxWCFService/Service1.svc?xsd=xsd1" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="e06cf34f-50b0-417d-bacb-5772a7a1b050" SourceId="1" SourceUrl="http://192.168.1.3/XboxWCFService/Service1.svc?wsdl" />
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="c6d1d163-b103-4ec8-a9b6-fdf825a98d04" SourceId="1" SourceUrl="http://192.168.1.3/XboxWCFService/Service1.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service13.xsd" MetadataType="Schema" ID="2e073542-ee68-4657-9881-d6f1c00a6158" SourceId="1" SourceUrl="http://192.168.1.3/XboxWCFService/Service1.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="e4d44e67-7c2f-4fdf-8f7f-3a4599ddb861" SourceId="1" SourceUrl="http://192.168.1.3/XboxWCFService/Service1.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -28,10 +28,18 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            string user = textBox_FirstN.Text + " " + textBox_LastN.Text;
-            UserDashboard ud = new UserDashboard(user);
+            if(textBox_FirstN.Text == "admin" & textBox_LastN.Text == "admin")
+            {
+                AdminPage ap = new AdminPage();
+                this.NavigationService.Navigate(ap);
+            }else
+            {
+                string user = textBox_FirstN.Text + " " + textBox_LastN.Text;
+                UserDashboard ud = new UserDashboard(user);
+                this.NavigationService.Navigate(ud);
+            }
 
-            this.NavigationService.Navigate(ud);
+           
         }
     }
 }

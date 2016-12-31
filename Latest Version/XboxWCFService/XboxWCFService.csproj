@@ -147,6 +147,9 @@
     </Compile>
     <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="uspGetBodyDataByUserNameAndSessionName_Result.cs">
+      <DependentUpon>UTDataV3.tt</DependentUpon>
+    </Compile>
     <Compile Include="uspGetBodyData_Result.cs">
       <DependentUpon>UTDataV3.tt</DependentUpon>
     </Compile>

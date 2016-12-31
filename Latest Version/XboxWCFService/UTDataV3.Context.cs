@@ -29,11 +29,15 @@ namespace XboxWCFService
     
         public virtual DbSet<BodyData> BodyDatas { get; set; }
     
-        public virtual int uspInsertBodyData(string username, string joints, string jointPoints, Nullable<System.DateTime> timestamp)
+        public virtual int uspInsertBodyData(string username, string sessionName, string joints, string jointPoints, Nullable<System.DateTime> timestamp)
         {
             var usernameParameter = username != null ?
                 new ObjectParameter("username", username) :
                 new ObjectParameter("username", typeof(string));
+    
+            var sessionNameParameter = sessionName != null ?
+                new ObjectParameter("SessionName", sessionName) :
+                new ObjectParameter("SessionName", typeof(string));
     
             var jointsParameter = joints != null ?
                 new ObjectParameter("Joints", joints) :
@@ -47,12 +51,39 @@ namespace XboxWCFService
                 new ObjectParameter("timestamp", timestamp) :
                 new ObjectParameter("timestamp", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspInsertBodyData", usernameParameter, jointsParameter, jointPointsParameter, timestampParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspInsertBodyData", usernameParameter, sessionNameParameter, jointsParameter, jointPointsParameter, timestampParameter);
         }
     
         public virtual ObjectResult<uspGetBodyData_Result> uspGetBodyData()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspGetBodyData_Result>("uspGetBodyData");
+        }
+    
+        public virtual ObjectResult<string> uspGetPatients()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("uspGetPatients");
+        }
+    
+        public virtual ObjectResult<uspGetBodyDataByUserNameAndSessionName_Result> uspGetBodyDataByUserNameAndSessionName(string username, string sessionname)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var sessionnameParameter = sessionname != null ?
+                new ObjectParameter("sessionname", sessionname) :
+                new ObjectParameter("sessionname", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspGetBodyDataByUserNameAndSessionName_Result>("uspGetBodyDataByUserNameAndSessionName", usernameParameter, sessionnameParameter);
+        }
+    
+        public virtual ObjectResult<string> uspGetSessionsByUserName(string username)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("uspGetSessionsByUserName", usernameParameter);
         }
     }
 }

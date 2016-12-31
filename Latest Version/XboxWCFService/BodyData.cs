@@ -17,7 +17,8 @@ namespace XboxWCFService
         public int UserID { get; set; }
         public string Joints { get; set; }
         public string JointPoints { get; set; }
-        public System.DateTime timestamp { get; set; }
+        public Nullable<System.DateTime> timestamp { get; set; }
         public string UserName { get; set; }
+        public string SessionName { get; set; }
     }
 }

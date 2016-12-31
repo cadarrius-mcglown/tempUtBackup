@@ -18,20 +18,61 @@ namespace XboxWCFService
             using (UTBodyDataEntitiesV3 db = new UTBodyDataEntitiesV3())
             {
 
-                temp = db.BodyDatas.Select(x => new BodyDataObject() {UserName = x.UserName,Joints = x.Joints,JointPoints = x.JointPoints, TimeStamp = x.timestamp }).ToList(); 
+                temp = db.BodyDatas.Select(x => new BodyDataObject() {UserName = x.UserName,SessionName = x.SessionName,Joints = x.Joints,JointPoints = x.JointPoints, TimeStamp = Convert.ToDateTime( x.timestamp) }).ToList(); 
 
                // List<BodyDataObject> temp = db.uspGetBodyData();
             }
             return temp;
         }
-        public string SendData(string username, string joints, string jointPoints, DateTime dt)
+        public string SendData(string username,string sessionname, string joints, string jointPoints, DateTime dt)
         {
             using(UTBodyDataEntitiesV3 db = new UTBodyDataEntitiesV3())
             {
-                db.uspInsertBodyData(username, joints, jointPoints, dt);
+                db.uspInsertBodyData(username, sessionname, joints, jointPoints, dt);
             }
             return "hi";
         }
+
+        public List<string> GetPatients()
+        {
+            List<string> temp = null;
+            using (UTBodyDataEntitiesV3 db = new UTBodyDataEntitiesV3())
+            {
+
+                temp = db.uspGetPatients().ToList<string>();
+
+                // List<BodyDataObject> temp = db.uspGetBodyData();
+            }
+            return temp;
+        }
+
+        public List<string> GetSessions(string username)
+        {
+            List<string> temp = null;
+            using (UTBodyDataEntitiesV3 db = new UTBodyDataEntitiesV3())
+            {
+
+                temp = db.uspGetSessionsByUserName(username).ToList<string>();
+
+                // List<BodyDataObject> temp = db.uspGetBodyData();
+            }
+            return temp;
+        }
+
+        public List<uspGetBodyDataByUserNameAndSessionName_Result> GetBodyData(string username, string sessionname)
+        {
+            //List<BodyDataObject> temp = null;
+            List<uspGetBodyDataByUserNameAndSessionName_Result> temp = null;
+            using (UTBodyDataEntitiesV3 db = new UTBodyDataEntitiesV3())
+            {
+
+                //temp = db.BodyDatas.Where(x => x.UserName == username & x.SessionName == sessionname).Select(x => new BodyDataObject() { UserName = x.UserName, SessionName = x.SessionName, Joints = x.Joints, JointPoints = x.JointPoints, TimeStamp = Convert.ToDateTime(x.timestamp) }).ToList();
+                 temp = db.uspGetBodyDataByUserNameAndSessionName(username, sessionname).ToList<uspGetBodyDataByUserNameAndSessionName_Result>();
+             }
+            return temp;
+        }
+
+
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)
         {

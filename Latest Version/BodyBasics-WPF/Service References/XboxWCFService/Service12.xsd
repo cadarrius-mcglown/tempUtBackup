@@ -10,11 +10,29 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="JointPoints" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Joints" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessionName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TimeStamp" type="xs:dateTime" />
       <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="BodyDataObject" nillable="true" type="tns:BodyDataObject" />
+  <xs:complexType name="ArrayOfuspGetBodyDataByUserNameAndSessionName_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="uspGetBodyDataByUserNameAndSessionName_Result" nillable="true" type="tns:uspGetBodyDataByUserNameAndSessionName_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfuspGetBodyDataByUserNameAndSessionName_Result" nillable="true" type="tns:ArrayOfuspGetBodyDataByUserNameAndSessionName_Result" />
+  <xs:complexType name="uspGetBodyDataByUserNameAndSessionName_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="JointPoints" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Joints" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="timestamp" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="uspGetBodyDataByUserNameAndSessionName_Result" nillable="true" type="tns:uspGetBodyDataByUserNameAndSessionName_Result" />
   <xs:complexType name="CompositeType">
     <xs:sequence>
       <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />

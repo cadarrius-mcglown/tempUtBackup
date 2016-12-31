@@ -77,6 +77,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminPage.xaml.cs">
+      <DependentUpon>AdminPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AnalyticalView.xaml.cs">
       <DependentUpon>AnalyticalView.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
     <Compile Include="UserSessionPage.xaml.cs">
       <DependentUpon>UserSessionPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="AdminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AnalyticalView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,6 +193,9 @@
     <None Include="Service References\XboxWCFService\Microsoft.Samples.Kinect.BodyBasics.XboxWCFService.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\XboxWCFService\Microsoft.Samples.Kinect.BodyBasics.XboxWCFService.uspGetBodyDataByUserNameAndSessionName_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\XboxWCFService\Service1.wsdl" />
     <None Include="Service References\XboxWCFService\Service1.xsd">
       <SubType>Designer</SubType>
@@ -194,6 +204,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\XboxWCFService\Service12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\XboxWCFService\Service13.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
