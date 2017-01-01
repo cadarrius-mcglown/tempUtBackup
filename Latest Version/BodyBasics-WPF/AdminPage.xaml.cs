@@ -20,6 +20,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
     /// </summary>
     public partial class AdminPage : Page
     {
+        string selectedUserName;
         public AdminPage()
         {
             InitializeComponent();
@@ -32,6 +33,30 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
             PatientListBox.ItemsSource = patientNames;
 
+
+
+        }
+
+        private void Button_GetSessions_Click(object sender, RoutedEventArgs e)
+        {
+            selectedUserName = PatientListBox.SelectedValue.ToString();
+
+            using (XboxWCFService.Service1Client s = new XboxWCFService.Service1Client())
+            {
+               SessionListBox.ItemsSource =  s.GetSessions(selectedUserName);
+            }
+
+
+        }
+
+        private void Button_GoToSession_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> SessionInfo = new List<string>();
+            SessionInfo.Add(selectedUserName);
+            SessionInfo.Add(SessionListBox.SelectedValue.ToString());
+
+            AdminSessionReview asr = new AdminSessionReview(SessionInfo);
+            this.NavigationService.Navigate(asr);
         }
     }
 }

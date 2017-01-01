@@ -66,7 +66,7 @@
             <Parameter Name="sessionname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="uspGetSessionsByUserName" ReturnType="Collection(String)">
-            <Parameter Name="username" Mode="In" Type="String" />
+          <Parameter Name="username" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="uspGetBodyData_Result">

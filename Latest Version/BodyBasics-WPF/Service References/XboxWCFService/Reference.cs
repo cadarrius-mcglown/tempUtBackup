@@ -337,10 +337,10 @@ namespace Microsoft.Samples.Kinect.BodyBasics.XboxWCFService {
         System.Threading.Tasks.Task<string[]> GetSessionsAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBodyData", ReplyAction="http://tempuri.org/IService1/GetBodyDataResponse")]
-        Microsoft.Samples.Kinect.BodyBasics.XboxWCFService.uspGetBodyDataByUserNameAndSessionName_Result[] GetBodyData(string sessionname, string username);
+        Microsoft.Samples.Kinect.BodyBasics.XboxWCFService.uspGetBodyDataByUserNameAndSessionName_Result[] GetBodyData(string username, string sessionname);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBodyData", ReplyAction="http://tempuri.org/IService1/GetBodyDataResponse")]
-        System.Threading.Tasks.Task<Microsoft.Samples.Kinect.BodyBasics.XboxWCFService.uspGetBodyDataByUserNameAndSessionName_Result[]> GetBodyDataAsync(string sessionname, string username);
+        System.Threading.Tasks.Task<Microsoft.Samples.Kinect.BodyBasics.XboxWCFService.uspGetBodyDataByUserNameAndSessionName_Result[]> GetBodyDataAsync(string username, string sessionname);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         Microsoft.Samples.Kinect.BodyBasics.XboxWCFService.CompositeType GetDataUsingDataContract(Microsoft.Samples.Kinect.BodyBasics.XboxWCFService.CompositeType composite);
@@ -408,12 +408,12 @@ namespace Microsoft.Samples.Kinect.BodyBasics.XboxWCFService {
             return base.Channel.GetSessionsAsync(username);
         }
         
-        public Microsoft.Samples.Kinect.BodyBasics.XboxWCFService.uspGetBodyDataByUserNameAndSessionName_Result[] GetBodyData(string sessionname, string username) {
-            return base.Channel.GetBodyData(sessionname, username);
+        public Microsoft.Samples.Kinect.BodyBasics.XboxWCFService.uspGetBodyDataByUserNameAndSessionName_Result[] GetBodyData(string username, string sessionname) {
+            return base.Channel.GetBodyData(username, sessionname);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Samples.Kinect.BodyBasics.XboxWCFService.uspGetBodyDataByUserNameAndSessionName_Result[]> GetBodyDataAsync(string sessionname, string username) {
-            return base.Channel.GetBodyDataAsync(sessionname, username);
+        public System.Threading.Tasks.Task<Microsoft.Samples.Kinect.BodyBasics.XboxWCFService.uspGetBodyDataByUserNameAndSessionName_Result[]> GetBodyDataAsync(string username, string sessionname) {
+            return base.Channel.GetBodyDataAsync(username, sessionname);
         }
         
         public Microsoft.Samples.Kinect.BodyBasics.XboxWCFService.CompositeType GetDataUsingDataContract(Microsoft.Samples.Kinect.BodyBasics.XboxWCFService.CompositeType composite) {

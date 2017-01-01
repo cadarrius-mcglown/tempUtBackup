@@ -83,12 +83,10 @@ C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\b
 C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\bin\AnyCPU\Debug\Newtonsoft.Json.xml
 C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\obj\Debug\BodyBasics-WPF.csprojResolveAssemblyReference.cache
 C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\obj\Debug\AnalyticalView.baml
-C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\obj\Debug\MainWindow.baml
 C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\obj\Debug\AnalyticalView.g.cs
 C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\obj\Debug\ApplicationWindow.g.cs
 C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\obj\Debug\LoginPage.g.cs
 C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\obj\Debug\MainMenu.g.cs
-C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\obj\Debug\MainWindow.g.cs
 C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\obj\Debug\UserDashboard.g.cs
 C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\obj\Debug\UserSessionPage.g.cs
 C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\obj\Debug\App.g.cs
@@ -104,3 +102,5 @@ C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\o
 C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\obj\Debug\BodyBasics-WPF.csproj.GenerateResource.Cache
 C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\obj\Debug\AdminPage.g.cs
 C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\obj\Debug\AdminPage.baml
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\obj\Debug\AdminSessionReview.g.cs
+C:\Users\cadarrius\Documents\GitHub\tempUtBackup\Latest Version\BodyBasics-WPF\obj\Debug\AdminSessionReview.baml

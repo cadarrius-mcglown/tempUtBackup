@@ -1,30 +1,34 @@
-﻿//------------------------------------------------------------------------------
-// <copyright file="MainWindow.xaml.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//------------------------------------------------------------------------------
+﻿using Microsoft.Kinect;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace Microsoft.Samples.Kinect.BodyBasics
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Diagnostics;
-    using System.Globalization;
-    using System.IO;
-    using System.Windows;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
-    using Microsoft.Kinect;
-
     /// <summary>
-    /// Interaction logic for MainWindow
+    /// Interaction logic for AdminSessionReview.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class AdminSessionReview : Page
     {
-        
+        private string username = "";
+        private string sessionname = "";
         private bool sendMe = true;
-        private XboxWCFService.Service1Client s;
+        private XboxWCFService.uspGetBodyDataByUserNameAndSessionName_Result[] retrievedData;
+        private int replayCount = 0;
+
+        
 
         /// <summary>
         /// Radius of drawn hand circles
@@ -131,15 +135,18 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         /// </summary>
         private string statusText = null;
 
-        private string username = "";
-        
+     
+
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
-        public MainWindow(string uname)
+        public AdminSessionReview(List<string> info)
         {
-            username = uname;
-            
+            InitializeComponent();
+
+            username = info[0];
+            sessionname = info[1];
+            mediaElement.Source = new System.Uri(info[1]);
 
             // one sensor is currently supported
             this.kinectSensor = KinectSensor.GetDefault();
@@ -273,13 +280,17 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         /// </summary>
         /// <param name="sender">object sending the event</param>
         /// <param name="e">event arguments</param>
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private void AdminSessionReview_Loaded(object sender, RoutedEventArgs e)
         {
             //Place username in textbox
+            //textBox.Text = username;
             textBox.Text = username;
+            using (XboxWCFService.Service1Client s = new XboxWCFService.Service1Client())
+            {
+                retrievedData = s.GetBodyData(username,sessionname).ToArray();
 
-            s = new XboxWCFService.Service1Client();
-
+            }
+            
             if (this.bodyFrameReader != null)
             {
                 this.bodyFrameReader.FrameArrived += this.Reader_FrameArrived;
@@ -291,7 +302,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         /// </summary>
         /// <param name="sender">object sending the event</param>
         /// <param name="e">event arguments</param>
-        private void MainWindow_Closing(object sender, CancelEventArgs e)
+        private void UserSessionPage_Closing(object sender, CancelEventArgs e)
         {
             if (this.bodyFrameReader != null)
             {
@@ -350,7 +361,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                             this.DrawClippedEdges(body, dc);
 
                             IReadOnlyDictionary<JointType, Joint> joints = body.Joints;
-                            
+
                             // convert the joint points to depth (display) space
                             Dictionary<JointType, Point> jointPoints = new Dictionary<JointType, Point>();
 
@@ -360,15 +371,15 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                                 // clamp down to 0.1f to prevent coordinatemapper from returning (-Infinity, -Infinity)
                                 CameraSpacePoint position = joints[jointType].Position;
 
-                               // if (sendMe)
-                               // {
-                                   // using (XboxWCFService.Service1Client s = new XboxWCFService.Service1Client())
-                                    //{
-                                   //     textBox.Text = s.GetData(Convert.ToInt32(position.Z));
-                                   //     sendMe = false;
-                                   // }
+                                // if (sendMe)
+                                // {
+                                // using (XboxWCFService.Service1Client s = new XboxWCFService.Service1Client())
+                                //{
+                                //     textBox.Text = s.GetData(Convert.ToInt32(position.Z));
+                                //     sendMe = false;
+                                // }
                                 //}
-                               
+
 
 
                                 if (position.Z < 0)
@@ -379,17 +390,14 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                                 DepthSpacePoint depthSpacePoint = this.coordinateMapper.MapCameraPointToDepthSpace(position);
                                 jointPoints[jointType] = new Point(depthSpacePoint.X, depthSpacePoint.Y);
                             }
-                            
+                            joints = Newtonsoft.Json.JsonConvert.DeserializeObject<IReadOnlyDictionary<JointType, Joint>>(retrievedData[replayCount].Joints);
+                            jointPoints = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<JointType, Point>>(retrievedData[replayCount].JointPoints);
+                            if (replayCount < retrievedData.Length-1)
+                                replayCount++;
+
                             this.DrawBody(joints, jointPoints, dc, drawPen);
 
-                            string jointsJSONString = Newtonsoft.Json.JsonConvert.SerializeObject(joints);
-                            string jointPointsJSONString = Newtonsoft.Json.JsonConvert.SerializeObject(jointPoints);
-                            //IReadOnlyDictionary<JointType, Joint> deserializedJoints = Newtonsoft.Json.JsonConvert.DeserializeObject<IReadOnlyDictionary<JointType, Joint>>(jointsJSONString);
-
-                            
                            
-                            s.SendData(username,"testsession2", jointsJSONString, jointPointsJSONString, DateTime.Now);
-
                             this.DrawHand(body.HandLeftState, jointPoints[JointType.HandLeft], dc);
                             this.DrawHand(body.HandRightState, jointPoints[JointType.HandRight], dc);
                         }
@@ -548,15 +556,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                                                             : Properties.Resources.SensorNotAvailableStatusText;
         }
 
-        private void navMainMenu_Click(object sender, RoutedEventArgs e)
-        {
-         
 
-            MainMenu mainMenu = new MainMenu();
-            App.Current.MainWindow = mainMenu;
-            this.Close();
-            mainMenu.Show();
-        }
-        
+
     }
 }

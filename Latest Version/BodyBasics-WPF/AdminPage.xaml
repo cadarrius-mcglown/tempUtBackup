@@ -10,6 +10,10 @@
 
     <Grid Background="#FF5D5D5D">
         <Label x:Name="AdminWelcomeLabel" Content="Admin Dashboard" HorizontalAlignment="Left" Margin="602,10,0,0" VerticalAlignment="Top" Width="332" Height="60" FontSize="36" FontFamily="Segoe UI Black" RenderTransformOrigin="0.466,0.533"/>
-        <ListBox x:Name="PatientListBox" HorizontalAlignment="Left" Height="334" Margin="862,75,0,0" VerticalAlignment="Top" Width="706" FontSize="24" Background="#FFB9B9B9"/>
+        <ListBox x:Name="PatientListBox" HorizontalAlignment="Left" Height="334" Margin="36,101,0,0" VerticalAlignment="Top" Width="706" FontSize="24" Background="#FFB9B9B9"/>
+        <ListBox x:Name="SessionListBox" HorizontalAlignment="Left" Height="334" Margin="828,101,0,0" VerticalAlignment="Top" Width="706" FontSize="24" Background="#FFB9B9B9"/>
+
+        <Button x:Name="Button_GetSessions" Content="Get Sessions" HorizontalAlignment="Left" Margin="194,458,0,0" VerticalAlignment="Top" Width="367" RenderTransformOrigin="0.373,-3.1" Height="116" FontSize="48" Click="Button_GetSessions_Click"  />
+        <Button x:Name="Button_GoToSession" Content="Go To Session" HorizontalAlignment="Left" Margin="996,458,0,0" VerticalAlignment="Top" Width="367" RenderTransformOrigin="0.373,-3.1" Height="116" FontSize="48" Click="Button_GoToSession_Click"  />
     </Grid>
 </Page>

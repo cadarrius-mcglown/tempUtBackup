@@ -26,7 +26,7 @@ namespace XboxWCFService
         List<string> GetSessions(string username);
 
         [OperationContract]
-        List<uspGetBodyDataByUserNameAndSessionName_Result> GetBodyData(string sessionname, string username);
+        List<uspGetBodyDataByUserNameAndSessionName_Result> GetBodyData(string username, string sessionname);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -61,14 +62,24 @@ namespace XboxWCFService
 
         public List<uspGetBodyDataByUserNameAndSessionName_Result> GetBodyData(string username, string sessionname)
         {
-            //List<BodyDataObject> temp = null;
             List<uspGetBodyDataByUserNameAndSessionName_Result> temp = null;
+           // List<uspGetBodyDataByUserNameAndSessionName_Result> temp = null;
             using (UTBodyDataEntitiesV3 db = new UTBodyDataEntitiesV3())
             {
 
-                //temp = db.BodyDatas.Where(x => x.UserName == username & x.SessionName == sessionname).Select(x => new BodyDataObject() { UserName = x.UserName, SessionName = x.SessionName, Joints = x.Joints, JointPoints = x.JointPoints, TimeStamp = Convert.ToDateTime(x.timestamp) }).ToList();
-                 temp = db.uspGetBodyDataByUserNameAndSessionName(username, sessionname).ToList<uspGetBodyDataByUserNameAndSessionName_Result>();
-             }
+                temp = db.uspGetBodyDataByUserNameAndSessionName(username, sessionname).ToList<uspGetBodyDataByUserNameAndSessionName_Result>();
+                //var t = db.BodyDatas.Select(x => new BodyDataObject() { UserName = x.UserName, SessionName = x.SessionName, Joints = x.Joints, JointPoints = x.JointPoints, TimeStamp = DateTime.Now }).ToList();
+
+                //foreach(BodyDataObject bd in t)
+                //{
+                //    if(bd.UserName == "Cadarrius Mcglown" & bd.SessionName == "testsession")
+                //        Debug.WriteLine(bd.UserName + " " + bd.SessionName);
+                //}
+
+                //temp = db.BodyDatas.Where(x => x.UserName == username & x.SessionName == sessionname).Select(x => new BodyDataObject() { UserName = x.UserName, SessionName = x.SessionName, Joints = x.Joints, JointPoints = x.JointPoints, TimeStamp = DateTime.Now }).ToList();
+                //temp = db.BodyDatas.Where(x => x.UserName == username & x.SessionName == sessionname).Select(x => new BodyDataObject() { UserName = x.UserName, SessionName = x.SessionName, Joints = x.Joints, JointPoints = x.JointPoints, TimeStamp = DateTime.Now }).ToList();
+                //temp = db.uspGetBodyDataByUserNameAndSessionName(username, sessionname).ToList<uspGetBodyDataByUserNameAndSessionName_Result>();
+            }
             return temp;
         }
 

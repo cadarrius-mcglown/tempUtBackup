@@ -23,21 +23,5 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         {
             InitializeComponent();
         }
-
-        private void Exam_Clicked(object sender, RoutedEventArgs e)
-        {
-            MainWindow examWindow = new MainWindow(usernameLabel.Text);
-            App.Current.MainWindow = examWindow;
-            this.Close();
-            examWindow.Show();
-        }
-
-        private void AnalyticalViewBtn_Clicked(object sender, RoutedEventArgs e)
-        {
-           AnalyticalView analyticalWindow = new AnalyticalView(usernameLabel.Text);
-            App.Current.MainWindow = analyticalWindow;
-            this.Close();
-            analyticalWindow.Show();
-        }
     }
 }

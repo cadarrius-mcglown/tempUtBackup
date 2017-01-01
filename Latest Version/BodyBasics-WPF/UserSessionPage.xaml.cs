@@ -22,8 +22,8 @@ namespace Microsoft.Samples.Kinect.BodyBasics
     /// </summary>
     public partial class UserSessionPage : Page
     {
-      
 
+        string sessionname = "";
         private bool sendMe = true;
         private XboxWCFService.Service1Client s;
 
@@ -142,6 +142,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             InitializeComponent();
 
             username = info[0];
+            sessionname = info[1];
             mediaElement.Source = new System.Uri(info[1]);
 
             // one sensor is currently supported
@@ -391,7 +392,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
 
 
-                            s.SendData(username, "testsession2",jointsJSONString, jointPointsJSONString, DateTime.Now);
+                            s.SendData(username, sessionname,jointsJSONString, jointPointsJSONString, DateTime.Now);
 
                             this.DrawHand(body.HandLeftState, jointPoints[JointType.HandLeft], dc);
                             this.DrawHand(body.HandRightState, jointPoints[JointType.HandRight], dc);
