@@ -11,7 +11,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
     using Microsoft.Kinect;
-    using XboxWCFService;
+    using DataService;
 
     /// <summary>
     /// Interaction logic for MainWindow
@@ -274,7 +274,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         {
             //Place username in textbox
             textBox.Text = username;
-            using (XboxWCFService.Service1Client s = new XboxWCFService.Service1Client())
+            using (DataService.Service1Client s = new DataService.Service1Client())
             {
                  retrievedData = s.GetData(0);
 
@@ -562,10 +562,10 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            using (ServiceReference1.Service1Client s = new ServiceReference1.Service1Client())
-            {
-                textBox.Text = s.GetData(19);
-            }
+            //using (ServiceReference1.Service1Client s = new ServiceReference1.Service1Client())
+            //{
+              //  textBox.Text = s.GetData(19);
+            //}
         }
 
 

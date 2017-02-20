@@ -25,7 +25,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
         string sessionname = "";
         private bool sendMe = true;
-        private XboxWCFService.Service1Client s;
+        private DataService.Service1Client s;
 
         /// <summary>
         /// Radius of drawn hand circles
@@ -282,7 +282,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             //Place username in textbox
             //textBox.Text = username;
 
-            s = new XboxWCFService.Service1Client();
+            s = new DataService.Service1Client();
 
             if (this.bodyFrameReader != null)
             {

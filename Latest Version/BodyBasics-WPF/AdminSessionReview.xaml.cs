@@ -25,7 +25,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         private string username = "";
         private string sessionname = "";
         private bool sendMe = true;
-        private XboxWCFService.uspGetBodyDataByUserNameAndSessionName_Result[] retrievedData;
+        private DataService.uspGetBodyDataByUserNameAndSessionName_Result[] retrievedData;
         private int replayCount = 0;
 
         
@@ -285,7 +285,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             //Place username in textbox
             //textBox.Text = username;
             textBox.Text = username;
-            using (XboxWCFService.Service1Client s = new XboxWCFService.Service1Client())
+            using (DataService.Service1Client s = new DataService.Service1Client())
             {
                 retrievedData = s.GetBodyData(username,sessionname).ToArray();
 

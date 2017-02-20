@@ -26,7 +26,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             InitializeComponent();
 
             List<string> patientNames;
-            using(XboxWCFService.Service1Client s = new XboxWCFService.Service1Client())
+            using(DataService.Service1Client s = new DataService.Service1Client())
             {
                 patientNames = s.GetPatients().ToList<string>();
             }
@@ -41,7 +41,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         {
             selectedUserName = PatientListBox.SelectedValue.ToString();
 
-            using (XboxWCFService.Service1Client s = new XboxWCFService.Service1Client())
+            using (DataService.Service1Client s = new DataService.Service1Client())
             {
                SessionListBox.ItemsSource =  s.GetSessions(selectedUserName);
             }
